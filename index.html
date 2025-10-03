@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Tạo Đơn Tự Động</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        label { display: block; margin-top: 15px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Chọn và điền thông tin đơn</h2>
+    <form action="URL_WEBHOOK_CUA_BAN" method="POST">
+        <label for="form_type">Chọn loại đơn:</label>
+        <select name="form_type" id="form_type" required>
+            <option value="Đơn xin nghỉ học">Đơn xin nghỉ học</option>
+            <option value="Đơn xin bảo lưu">Đơn xin bảo lưu</option>
+            <option value="Đơn xin thi lại">Đơn xin thi lại</option>
+        </select>
+
+        <label for="ho_ten">Họ và Tên:</label>
+        <input type="text" id="ho_ten" name="ho_ten" required>
+
+        <label for="ngay_sinh">Ngày tháng năm sinh:</label>
+        <input type="text" id="ngay_sinh" name="ngay_sinh" placeholder="Ví dụ: 20/10/2005" required>
+        
+        <label for="email_nhan">Email người nhận:</label>
+        <input type="email" id="email_nhan" name="email_nhan" required>
+
+        <button type="submit">Gửi Yêu Cầu</button>
+    </form>
+</body>
+</html>
