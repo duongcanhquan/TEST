@@ -3,34 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ Thống Tạo Đơn Tự Động</title>
+    <title>Infographic: 9 Bước Vàng Để Tạo App AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
-        label { display: block; margin-top: 15px; }
-        input, select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
-        button { margin-top: 20px; padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-image 0.4s ease;
+            position: relative;
+            border-top-width: 4px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: var(--delay);
+            overflow: hidden; /* Important for the background number */
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #111827; /* Darker text */
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-number {
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: #6b7280; /* Gray text */
+            margin-bottom: 0.75rem;
+        }
+
+        .card-content {
+            color: #4b5563;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .background-step-number {
+            position: absolute;
+            font-size: 280px; /* Made very large to span height */
+            font-weight: 800;
+            color: rgba(0, 0, 0, 0.05); /* Adjusted for better blending */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centered within the card */
+            z-index: 0;
+            line-height: 1;
+            user-select: none;
+        }
+
+        /* Color Themes */
+        .color-1 { border-color: #3b82f6; } .color-1 .icon-wrapper { background-color: #dbeafe; } .color-1 .icon-wrapper svg { color: #3b82f6; }
+        .color-2 { border-color: #8b5cf6; } .color-2 .icon-wrapper { background-color: #ede9fe; } .color-2 .icon-wrapper svg { color: #8b5cf6; }
+        .color-3 { border-color: #10b981; } .color-3 .icon-wrapper { background-color: #d1fae5; } .color-3 .icon-wrapper svg { color: #10b981; }
+        .color-4 { border-color: #6366f1; } .color-4 .icon-wrapper { background-color: #e0e7ff; } .color-4 .icon-wrapper svg { color: #6366f1; }
+        .color-5 { border-color: #06b6d4; } .color-5 .icon-wrapper { background-color: #cffafe; } .color-5 .icon-wrapper svg { color: #06b6d4; }
+        .color-6 { border-color: #ec4899; } .color-6 .icon-wrapper { background-color: #fce7f3; } .color-6 .icon-wrapper svg { color: #ec4899; }
+        .color-7 { border-color: #f59e0b; } .color-7 .icon-wrapper { background-color: #fef3c7; } .color-7 .icon-wrapper svg { color: #f59e0b; }
+        .color-8 { border-color: #0ea5e9; } .color-8 .icon-wrapper { background-color: #e0f2fe; } .color-8 .icon-wrapper svg { color: #0ea5e9; }
+        .color-9 { border-color: #d946ef; } .color-9 .icon-wrapper { background-color: #f5d0fe; } .color-9 .icon-wrapper svg { color: #d946ef; }
+
+        /* New Hover Gradient Effects - Made more prominent */
+        .color-1:hover { background-image: linear-gradient(to top, #dbeafe, white 50%); }
+        .color-2:hover { background-image: linear-gradient(to top, #ede9fe, white 50%); }
+        .color-3:hover { background-image: linear-gradient(to top, #d1fae5, white 50%); }
+        .color-4:hover { background-image: linear-gradient(to top, #e0e7ff, white 50%); }
+        .color-5:hover { background-image: linear-gradient(to top, #cffafe, white 50%); }
+        .color-6:hover { background-image: linear-gradient(to top, #fce7f3, white 50%); }
+        .color-7:hover { background-image: linear-gradient(to top, #fef3c7, white 50%); }
+        .color-8:hover { background-image: linear-gradient(to top, #e0f2fe, white 50%); }
+        .color-9:hover { background-image: linear-gradient(to top, #f5d0fe, white 50%); }
+
     </style>
 </head>
-<body>
-    <h2>Chọn và điền thông tin đơn</h2>
-    <form action="https://apchn-host.lapage.vn/webhook-test/53312332-2105-4d62-82c9-55635a96b13b" method="POST">
-        <label for="form_type">Chọn loại đơn:</label>
-        <select name="form_type" id="form_type" required>
-            <option value="Đơn xin nghỉ học">Đơn xin nghỉ học</option>
-            <option value="Đơn xin bảo lưu">Đơn xin bảo lưu</option>
-            <option value="Đơn xin thi lại">Đơn xin thi lại</option>
-        </select>
+<body class="bg-slate-50">
 
-        <label for="ho_ten">Họ và Tên:</label>
-        <input type="text" id="ho_ten" name="ho_ten" required>
-
-        <label for="ngay_sinh">Ngày tháng năm sinh:</label>
-        <input type="text" id="ngay_sinh" name="ngay_sinh" placeholder="Ví dụ: 20/10/2005" required>
+    <div class="container mx-auto px-4 py-16 md:py-20">
         
-        <label for="email_nhan">Email người nhận:</label>
-        <input type="email" id="email_nhan" name="email_nhan" required>
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500 pb-2">9 Bước Vàng Để "Đặt Hàng" App AI</h1>
+        </header>
 
-        <button type="submit">Gửi Yêu Cầu</button>
-    </form>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card 1 -->
+            <div class="card color-1" style="--delay: 0.1s;">
+                <div class="background-step-number">1</div>
+                <div class="relative z-10">
+                    <div class="icon-wrapper">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <p class="step-number">BƯỚC 1</p>
+                    <h2 class="card-title">Tên & Mục Tiêu</h2>
+                    <p class="card-content">Đặt tên cụ thể và nêu rõ 1 mục tiêu duy nhất mà ứng dụng cần giải quyết.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card color-2" style="--delay: 0.2s;">
+                 <div class="background-step-number">2</div>
+                 <div class="relative z-10">
+                    <div class="icon-wrapper">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    </div>
+                    <p class="step-number">BƯỚC 2</p>
+                    <h2 class="card-title">Đối Tượng Người Dùng</h2>
+                    <p class="card-content">Mô tả rõ người dùng ứng dụng này. Ví dụ : Học sinh lớp mấy, dành cho ai, trình độ ra sao .</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card color-3" style="--delay: 0.3s;">
+                <div class="background-step-number">3</div>
+                <div class="relative z-10">
+                    <div class="icon-wrapper">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
+                    <p class="step-number">BƯỚC 3</p>
+                    <h2 class="card-title">Chức Năng</h2>
+                    <p class="card-content">Thực hiện các chức năng mong muốn, cấu trúc trang, cấu trúc menu, khi bấm vào thế nào? Yêu cầu đầu vào, đầu ra thế nào?</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card color-4" style="--delay: 0.4s;">
+                <div class="background-step-number">4</div>
+                <div class="relative z-10">
+                    <div class="icon-wrapper">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                    </div>
+                    <p class="step-number">BƯỚC 4</p>
+                    <h2 class="card-title">Luồng Tương Tác</h2>
+                    <p class="card-content">Viết ra các bước sử dụng app theo thứ tự từ đầu đến cuối (VD: Bước 1 -> Bước 2...).</p>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="card color-5" style="--delay: 0.5s;">
+                <div class="background-step-number">5</div>
+                <div class="relative z-10">
+                    <div class="icon-wrapper">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
+                    </div>
+                    <p class="step-number">BƯỚC 5</p>
+                    <h2 class="card-title">Giao Diện & Trải Nghiệm</h2>
+                    <p class="card-content">Mô tả hình dung về bố cục, các nút chức năng, và luồng di chuyển giữa các màn hình.</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card color-6" style="--delay: 0.6s;">
+                <div class="background-step-number">6</div>
+                <div class="relative z-10">
+                    <div class="icon-wrapper">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                    </div>
+                    <p class="step-number">BƯỚC 6</p>
+                    <h2 class="card-title">Nguồn Kiến Thức</h2>
+                    <p class="card-content">Chỉ định rõ AI lấy thông tin từ đâu: kiến thức chung hay tài liệu bạn cung cấp.</p>
+                </div>
+            </div>
+            
+            <!-- Card 7 -->
+            <div class="card color-7" style="--delay: 0.7s;">
+                <div class="background-step-number">7</div>
+                <div class="relative z-10">
+                    <div class="icon-wrapper">
+                       <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                    </div>
+                    <p class="step-number">BƯỚC 7</p>
+                    <h2 class="card-title">Định Dạng Đầu Vào/Ra</h2>
+                    <p class="card-content">Người dùng nhập gì (văn bản, số)? AI trả kết quả ra sao (danh sách, bảng biểu)?</p>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="card color-8" style="--delay: 0.8s;">
+                <div class="background-step-number">8</div>
+                <div class="relative z-10">
+                    <div class="icon-wrapper">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                    </div>
+                    <p class="step-number">BƯỚC 8</p>
+                    <h2 class="card-title">Vai Trò & Phong Cách</h2>
+                    <p class="card-content">Yêu cầu AI đóng vai (giáo viên, trợ giảng) và dùng giọng văn (khích lệ, hài hước).</p>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="card color-9" style="--delay: 0.9s;">
+                <div class="background-step-number">9</div>
+                <div class="relative z-10">
+                    <div class="icon-wrapper">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.417l4.5-4.5m-3.95-3.033A12.01 12.01 0 0112 4.022a12.01 12.01 0 018.05 3.033m-16.1 0a12.01 12.01 0 0016.1 0" /></svg>
+                    </div>
+                    <p class="step-number">BƯỚC 9</p>
+                    <h2 class="card-title">Quy Tắc & Ràng Buộc</h2>
+                    <p class="card-content">Nêu rõ những điều AI **KHÔNG** được làm (VD: không trả lời ngoài chủ đề, giới hạn câu trả lời).</p>
+                </div>
+            </div>
+
+        </div>
+        
+        <footer class="text-center mt-20">
+            <h3 class="text-3xl font-bold text-slate-700">Sẵn sàng sáng tạo!</h3>
+            <p class="text-slate-500 mt-3 text-lg max-w-2xl mx-auto">Bắt đầu với một ý tưởng đơn giản và tinh chỉnh dần. Chúc các thầy cô thành công!</p>
+        </footer>
+
+    </div>
 </body>
 </html>
+
